@@ -21,7 +21,7 @@ async def cmd_basket(message: Message):
 @router.callback_query(F.data =='catalog')
 async def cmd_catalog(callback: CallbackQuery):
     await callback.answer("Вы открыли каталог", show_alert=True)
-    await callback.message.answer("Каталог")
+    await callback.message.answer("Каталог", reply_markup=await kb.brands())
 
 
 @router.callback_query(F.data =='contacts')
