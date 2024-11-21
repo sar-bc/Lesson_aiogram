@@ -29,9 +29,9 @@ async def reg_number(message: Message, state: FSMContext):
 
 @router.message(Reg.photo)
 async def reg_photo(message: Message, state: FSMContext):
-    await state.update_data(photo=message.photo[-1].file._id)
+    await state.update_data(photo=message.photo[-1].file_id)
     data = await state.get_data()
-    await message.answer_photo(photo=date['photo'], caption=f"Информация о Вас: {data['name']}, {data['number']}")
+    await message.answer_photo(photo=data['photo'], caption=f"Информация о Вас: {data['name']}, {data['number']}")
     await state.clear()    
 
 
