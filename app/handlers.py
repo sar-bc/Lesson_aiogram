@@ -1,6 +1,8 @@
 from aiogram import Router, F
 from aiogram.types import Message
 from aiogram.filters import CommandStart, CommandObject
+from aiogram.enums import ChatAction
+import asyncio
 
 router = Router()
 
@@ -15,4 +17,7 @@ async def get_photo(message: Message):
 
 @router.message(F.text == '123')
 async def echo(message: Message):
+    await message.bot.send_chat_action(chat_id=message.from_user.id,
+    action=ChatAction.TYPING)
+    await asyncio.sleep(4)
     await message.answer("hello")    
