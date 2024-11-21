@@ -12,6 +12,6 @@ main = ReplyKeyboardMarkup(keyboard=[
                            input_field_placeholder='Выберите пункт меню.')
 
 inline_main = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text='YouTube', url='https://youtube.com/@sudoteach')],
-    [InlineKeyboardButton(text='Telegram', url='https://t.me/sudoteach')]
+    [InlineKeyboardButton(text='Каталог', callback_data='catalog')],
+    [InlineKeyboardButton(text='Контакты', callback_data='contacts')]
 ])
