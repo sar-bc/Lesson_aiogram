@@ -10,14 +10,9 @@ router = Router()
 
 @router.message(CommandStart())
 async def cmd_start(message: Message):
-    await message.answer(f'Привет!', reply_markup=kb.main)
+    await message.answer(f'Привет!', reply_markup=kb.inline_main)
 
-
-@router.message(F.photo)
-async def get_photo(message: Message):
-    await message.answer(f'ID фотографии: {message.photo[-1].file_id}')
 
 @router.message(F.text == 'Корзина')
 async def cmd_basket(message: Message):
     await message.answer("Ваша корзина пуста")    
-    
